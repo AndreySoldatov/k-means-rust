@@ -104,7 +104,7 @@ fn main() {
     let img = ImageReader::open(std::env::args().nth(1).unwrap()).unwrap().decode().unwrap().thumbnail(width, height);
     let img = dyn_image_to_norm_vec(img);
 
-    let k: usize = 6;
+    let k: usize = std::env::args().nth(2).unwrap_or(String::from("6")).parse().unwrap_or(6);
 
     let mut res_image = DynamicImage::ImageRgb8(RgbImage::new(k as u32, 1));
 
